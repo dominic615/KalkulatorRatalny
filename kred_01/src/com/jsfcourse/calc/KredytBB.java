@@ -12,28 +12,28 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 //@SessionScoped
 public class KredytBB {
-	private String x;
-	private String y;
-	private String z;
+	private Double amount;
+	private Integer months;
+	private Double intrestRate;
 	private Double result;
 
 	@Inject
 	FacesContext ctx;
 
-	public String getX() {
-		return x;
+	public Double getAmount() {
+		return amount;
 	}
 
-	public void setX(String x) {
-		this.x = x;
+	public void setAmount(Double amount) {
+		this.amount = amount;
 	}
 
-	public String getY() {
-		return y;
+	public Integer getMonths() {
+		return months;
 	}
 
-	public void setY(String y) {
-		this.y = y;
+	public void setMonths(Integer months) {
+		this.months = months;
 	}
 
 	public Double getResult() {
@@ -45,22 +45,20 @@ public class KredytBB {
 	}
 
 	
-	public String getZ() {
-		return z;
+	public Double getIntrestRate() {
+		return intrestRate;
 	}
 
-	public void setZ(String z) {
-		this.z = z;
+	public void setIntrestRate(Double intrestRate) {
+		this.intrestRate = intrestRate;
 	}
 	
 	public boolean doTheMath() {
 		try {
-			double x = Double.parseDouble(this.x);
-			double y = Double.parseDouble(this.y);
-			double z = Double.parseDouble(this.z);
 			
-			z=z/100;
-			result = (x+(x*z))/y;
+			
+			intrestRate=intrestRate/100;
+			result = (amount+(amount*intrestRate))/months;
 
 			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacja wykonana poprawnie", null));
 			return true;

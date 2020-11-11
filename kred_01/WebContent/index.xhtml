@@ -17,19 +17,37 @@
 
 	<h:form id="bla">
   		<h:panelGrid id="grid" columns="3" cellpadding="5">
-        	<p:outputLabel for="x" value="Kwota:" />
-        	<p:inputText id="x" value="#{kredytBB.x}" required="true" requiredMessage="brak kowta" />
-        	<p:message for="x" />
+        	<p:outputLabel for="amount" value="Kwota:" />
+        	<p:inputText id="amount" value="#{kredytBB.amount}" 
+        			required="true" 
+        			requiredMessage="brak kowta" 
+        			converterMessage="Kwota msui byc liczba"
+        			validatorMessage="Kwota musi byc nie mniejsza niz 1000">
+        		<f:validateDoubleRange minimum="1000"/>
+        	</p:inputText>
+        	<p:message for="amount" />
  
- 			<p:outputLabel for="y" value="Ilosc rat:" />
-        	<p:inputText id="y" value="#{kredytBB.y}" required="true" requiredMessage="brak rat" />
-        	<p:message for="y" />
+ 			<p:outputLabel for="months" value="Ilosc rat:" />
+        	<p:inputText id="months" value="#{kredytBB.months}" 
+        			required="true" 
+        			requiredMessage="brak rat"
+        			converterMessage="Ilosc rat musi byc liczba calkowita" 
+        			validatorMessage="Rat nie moze byc mniej niz 12">
+        		<f:validateLongRange minimum="12"/>
+        	</p:inputText>
+        	<p:message for="months" />
         
-        	<p:outputLabel for="z" value="oprocentowanie:" />
-        	<p:inputText id="z" value="#{kredytBB.z}" required="true" requiredMessage="brak oprocentowania" />
-        	<p:message for="z" />
+        	<p:outputLabel for="intrestRate" value="oprocentowanie:" />
+        	<p:inputText id="intrestRate" value="#{kredytBB.intrestRate}" 
+        			required="true" 
+        			requiredMessage="brak oprocentowania" 
+        			converterMessage="oprocentowanie musi byc liczba" 
+        			validatorMessage="oprocentowanie nie moze byc mniejsze niz 0 i wieksze niz 100">
+        		<f:validateDoubleRange minimum="0" maximum="100"/>
+        	</p:inputText>
+        	<p:message for="intrestRate" />
         	
-        	<p:commandButton value="Dodaj" action="#{kredytBB.calc()}" update="@form"/>
+        	<p:commandButton value="Oblicz" action="#{kredytBB.calc()}" update="@form"/>
        	</h:panelGrid>
 
 		<p:messages id="msg"/>
