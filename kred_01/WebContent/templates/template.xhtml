@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="title">Domyslny tytul</ui:insert></title>
+	<h:outputStylesheet name="css/style.css" library="template" />
+</h:head>
+
+<h:body>
+	<div id="page_wrapper">
+			<div id="header" class="box bottom-space">
+				<h1 class="title">
+					<ui:insert name="title">Domyslny tytul</ui:insert>
+				</h1>
+			</div>
+		<div id="content" class="box bottom-space">
+			<ui:insert name="content"></ui:insert>
+		</div>
+		
+		<div id="footer" class="box bottom-space">
+			<p>
+				<ui:insert name="footer">Domyslna stopka</ui:insert>
+			</p>
+		</div>
+		
+	</div>
+</h:body>
+
+</html>
